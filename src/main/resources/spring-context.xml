@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/util"
+       xmlns:contant="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 使用注解，必须开启注解注入 -->
+    <contant:component-scan base-package="com.smart.spring"/>
+
+    <!-- spring 帮我们创建对象 -->
+    <!-- spring 核心配置文件 -->
+    <!-- 第一种 -->
+    <!-- id 和 name 一样是key,class 是值 -->
+    <!-- scope 默认所有对象都是单例（singleton），可以不写  prototype 创建普通对象 -->
+    <!-- init-method 初始化方法 -->
+    <!-- destroy-method 销毁方法 -->
+    <!-- lazy-init 懒加载 -->
+    <bean id="user" class="com.smart.spring.bean.User"
+          init-method="init"
+          destroy-method="destroy" lazy-init="true">
+
+        <!-- 三个属性 name 属性名称 value 基本类型 ref 指向容器另外一个对象 -->
+        <property name="name" value="111"/>
+        <property name="password" value="1123"/>
+        <property name="address" ref="address"/>
+
+        <!-- 通过 ref 指向 <p:list id="list"> 的 id -->
+        <property name="list" ref="list">
+            <!--<list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <value>4</value>
+            </list>-->
+        </property>
+        <!-- 指向 -->
+        <property name="map">
+            <map>
+                <!-- key-ref="" 存放对象 -->
+                <entry key="1" value="he"/>
+            </map>
+        </property>
+    </bean>
+
+    <p:list id="list">
+        <value>1</value>
+        <value>2</value>
+    </p:list>
+    <p:map id="map">
+        <entry key="1" value="heh"/>
+    </p:map>
+
+    <bean id="address" class="com.smart.spring.bean.Address">
+    </bean>
+</beans>
