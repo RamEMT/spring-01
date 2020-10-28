@@ -16,18 +16,18 @@ import org.springframework.context.annotation.Configuration;
 public class DruidConfig {
 
     @Bean
-    public User user(Address address){
+    public User getUser(Address addr){
         User user = new User();
         user.setName("test");
         //方式一
         //user.setAddress(address());
-        //方式二
-        user.setAddress(address);
+        //方式二（推荐使用）
+        user.setAddress(addr);
         return user;
     }
 
     @Bean
-    public Address address(){
+    public Address addr(){
         return new Address();
     }
 }

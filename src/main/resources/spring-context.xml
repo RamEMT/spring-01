@@ -50,6 +50,12 @@
         <entry key="1" value="heh"/>
     </p:map>
 
+
+    <bean id="product" class="com.smart.spring.bean.Product">
+        <property name="name" value="辣条"/>
+        <property name="price" value="3.5"/>
+    </bean>
+
     <bean id="address" class="com.smart.spring.bean.Address">
     </bean>
 </beans>
