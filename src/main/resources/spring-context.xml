@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/util"
-       xmlns:contant="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/util"
+       xmlns:contxet="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util
+                           https://www.springframework.org/schema/util/spring-util.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 使用注解，必须开启注解注入 -->
-    <contant:component-scan base-package="com.smart.spring"/>
+    <!-- 会扫描 base-package 包下的所有注解Bean -->
+    <contxet:component-scan base-package="com.smart.spring"/>
+
+    <!-- 提供Setter方法，然后Spring容器调用类的Setter方法注入依赖 -->
 
     <!-- spring 帮我们创建对象 -->
     <!-- spring 核心配置文件 -->
@@ -57,5 +66,6 @@
     </bean>
 
     <bean id="address" class="com.smart.spring.bean.Address">
+        <property name="user" ref="user"/>
     </bean>
 </beans>

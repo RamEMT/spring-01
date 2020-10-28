@@ -16,7 +16,8 @@ import javax.annotation.Resource;
 public class UserController {
 
     /**
-     *  Autowired : 通常作用在 构造方法、方法、属性上
+     *
+     *  Autowired : 注入方式有 构造方法、方法、属性上
      *      只会根据类型查找相关依赖对象，可以和 @Qualifier(只会根据名字查找依赖对象) 一起使用
      *  Resource : （推荐使用）
      *      如果选择默认，会先根据 name 属性查找依赖对象，找不到则会根据 type 属性查找依赖，找不到则直接报错

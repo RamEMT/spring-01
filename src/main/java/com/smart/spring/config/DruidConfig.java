@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Configuration;
  *
  *  Configuration : ssm 项目 xml + 注解的形式
  *  Springboot ：java  config + 注解的形式
+ *
+ *  可以代替 xml 配置文件，被注解的类内部包含有一个或多个被@Bean注解的方法
+ *  Configuration 等价于 xml文件中的 <Beans></Beans>
+ *  Bean 等价于 <Bean></Bean>
  */
 @Configuration
 public class DruidConfig {

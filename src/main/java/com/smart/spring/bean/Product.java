@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  *  注解注册
  *  Component ：
  *      往容器中注册对象，在类上使用 -- 三层以外用
- *      value：给容器中bean指定名字，如果不指定则类名首字母小写
+ *      value：给容器中bean指定名字，如果不指定则默认为：类名首字母小写(变量命名 -- 小驼峰)
  *
  *  Service ：
  *      声明在 service 层
